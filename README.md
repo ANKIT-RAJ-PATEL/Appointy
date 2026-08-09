@@ -57,19 +57,7 @@ Welcome to **Appointy**, a premium open-source healthcare platform designed to s
 - **Adjustable Search Radius:** Users can dynamically slide between **1km – 20km** radius to fine-tune their search — ideal for urgent, same-day bookings.
 - **Distance Badges:** Each doctor card displays the exact distance (e.g., `3.2 km away`) when Near Me mode is active.
 
----
 
-## 📸 Screenshots
-
-| Landing Page | Medi AI Assistant |
-| :---: | :---: |
-| <img src="./frontend/public/screenshots/landing.png" alt="Landing Page"> | <img src="./frontend/public/screenshots/ai.png" alt="Medi AI Chat"> |
-
-| Patient Dashboard | Doctor Profile & Booking |
-| :---: | :---: |
-| <img src="./frontend/public/screenshots/patient-dashboard.png" alt="Patient Dashboard"> | <img src="./frontend/public/screenshots/doctor-profile.png" alt="Doctor Profile"> | <img src="./frontend/public/screenshots/booking.png" alt="Booking Screen"> |
-
----
 
 ## 🛠️ Technology Stack
 
