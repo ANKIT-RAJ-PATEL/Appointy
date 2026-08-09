@@ -23,7 +23,7 @@ Welcome to **Appointy**, a premium open-source healthcare platform designed to s
 ## 🚀 Live Demo
 
 - **Frontend (Patient/Doctor App):** [https://appointy-healthcare-platform.vercel.app](https://appointy-frontend-aht6.onrender.com/)
-- **Backend API:** [https://mern-healthcare-platform.onrender.com](https://appointy-backend-7uao.onrender.com))
+- **Backend API:** [https://mern-healthcare-platform.onrender.com](https://appointy-backend-7uao.onrender.com)
 
 ---
 
