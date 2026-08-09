@@ -22,8 +22,8 @@ Welcome to **Appointy**, a premium open-source healthcare platform designed to s
 
 ## 🚀 Live Demo
 
-- **Frontend (Patient/Doctor App):** [https://appointy-healthcare-platform.vercel.app/](https://appointy-healthcare-platform.vercel.app/)
-- **Backend API:** [https://mern-healthcare-platform.onrender.com](https://mern-healthcare-platform.onrender.com)
+- **Frontend (Patient/Doctor App):** [https://appointy-healthcare-platform.vercel.app](https://appointy-frontend-aht6.onrender.com/)
+- **Backend API:** [https://mern-healthcare-platform.onrender.com](https://appointy-backend-7uao.onrender.com))
 
 ---
 
@@ -130,7 +130,7 @@ Create `frontend/.env` and add:
 ```env
 VITE_API_URL=http://localhost:5000
 # For Production, set to your Vercel URL
-# VITE_API_URL=https://mern-healthcare-platform.vercel.app
+# VITE_API_URL=https://appointy-frontend-aht6.onrender.com/
 ```
 
 ### 3. Install & Run Dependencies
