@@ -53,7 +53,7 @@ const Landing = () => {
             <section className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
                 <div className="text-center mb-16">
                     <span className="text-primary-600 dark:text-primary-400 font-bold uppercase tracking-widest text-sm block mb-3">How It Works</span>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight">Book in 3 Simple Steps</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-cyan-300 leading-tight">Book in 3 Simple Steps</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {[
@@ -94,7 +94,7 @@ const Landing = () => {
                     <div className="space-y-8">
                         <div>
                             <span className="text-primary-600 dark:text-primary-400 font-bold uppercase tracking-widest text-sm block mb-3">About The Platform</span>
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-white leading-tight break-words">Bridging The Gap Between Care Partners & Patients</h2>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-800 dark:text-cyan-500 leading-tight break-words">Bridging The Gap Between Care Partners & Patients</h2>
                         </div>
                         <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                             Appointy isn't just a booking engine; it's a complete clinical workspace. For patients, it provides immediate access to thousands of verified Care Partners. For providers, it automates scheduling, digital prescriptions, and payout gateways so they focus entirely on care.

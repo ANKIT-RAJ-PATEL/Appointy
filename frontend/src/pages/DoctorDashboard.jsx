@@ -412,15 +412,11 @@ const DoctorDashboard = () => {
                                 {appointments.map((apt) => (
                                     <div key={apt._id} className="bg-slate-50 rounded-2xl p-5 border border-slate-100 relative overflow-hidden group">
                                         <div className={`absolute top-0 right-0 w-12 h-12 -mx-6 -my-6 rounded-full opacity-20 blur-xl ${apt.status === 'completed' ? 'bg-indigo-500' :
-                                            apt.status === 'confirmed' ? 'bg-green-500' :
-                                                apt.status === 'pending' ? 'bg-amber-500' : 'bg-red-500'
-                                            }`}></div>
+                                            apt.status === 'confirmed' ? 'bg-green-500' : apt.status === 'pending' ? 'bg-amber-500' : 'bg-red-500'}`}>
+                                        </div>
                                         <div className="flex justify-between items-start mb-4">
                                             <span className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${apt.status === 'completed' ? 'bg-indigo-100 text-indigo-700' :
-                                                apt.status === 'confirmed' ? 'bg-green-100 text-green-700' :
-                                                    apt.status === 'pending' ? 'bg-amber-100 text-amber-700' :
-                                                        'bg-red-100 text-red-700'
-                                                }`}>
+                                                apt.status === 'confirmed' ? 'bg-green-100 text-green-700' : apt.status === 'pending' ? 'bg-amber-100 text-amber-700' : 'bg-red-100 text-red-700'}`}>
                                                 {apt.status}
                                             </span>
                                         </div>
@@ -632,7 +628,8 @@ const DoctorDashboard = () => {
             {isEditModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setIsEditModalOpen(false)} />
-                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl relative z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-white">
+                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl relative 
+                        z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-white">
                         <div className="flex justify-between items-center mb-6">
                             <h2 className="text-2xl font-extrabold text-slate-800">Profile Settings</h2>
                         </div>
@@ -641,26 +638,35 @@ const DoctorDashboard = () => {
                                 <div className="flex-1 space-y-4">
                                     <div>
                                         <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Full Name</label>
-                                        <input type="text" value={editForm.name} onChange={(e) => setEditForm({ ...editForm, name: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
+                                        <input type="text" value={editForm.name} onChange={(e) => setEditForm({ ...editForm, name: e.target.value })} className="w-full px-4 py-3 
+                                            rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium
+                                             text-slate-700 outline-none transition-all" required />
                                     </div>
                                     <div>
                                         <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Specialty Focus</label>
-                                        <input type="text" value={editForm.specialty} onChange={(e) => setEditForm({ ...editForm, specialty: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
+                                        <input type="text" value={editForm.specialty} onChange={(e) => setEditForm({ ...editForm, specialty: e.target.value })} className="w-full px-4 py-3 
+                                            rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 
+                                            outline-none transition-all" required />
                                     </div>
                                     <div className="flex gap-4">
                                         <div className="flex-1">
                                             <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Experience (Yrs)</label>
-                                            <input type="number" value={editForm.experienceYears} onChange={(e) => setEditForm({ ...editForm, experienceYears: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
+                                            <input type="number" value={editForm.experienceYears} onChange={(e) => setEditForm({ ...editForm, experienceYears: e.target.value })} 
+                                                className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100
+                                                 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
                                         </div>
                                         <div className="flex-1">
                                             <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Session Fee (₹)</label>
-                                            <input type="number" value={editForm.consultationFee} onChange={(e) => setEditForm({ ...editForm, consultationFee: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
+                                            <input type="number" value={editForm.consultationFee} onChange={(e) => setEditForm({ ...editForm, consultationFee: e.target.value })} 
+                                                className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100
+                                                 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all" required />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="w-full md:w-1/3 flex flex-col items-center justify-start">
                                     <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 w-full text-left">Display Avatar</label>
-                                    <div className="w-32 h-32 rounded-[2rem] border-4 border-slate-100 overflow-hidden relative cursor-pointer shadow-md bg-white group flex items-center justify-center transform rotate-3 hover:rotate-0 transition-transform">
+                                    <div className="w-32 h-32 rounded-[2rem] border-4 border-slate-100 overflow-hidden relative cursor-pointer shadow-md bg-white group flex 
+                                        items-center justify-center transform rotate-3 hover:rotate-0 transition-transform">
                                         {editPhoto ? (
                                             <img src={URL.createObjectURL(editPhoto)} alt="Preview" className="w-full h-full object-cover" />
                                         ) : doctorProfile?.profilePhoto ? (
@@ -668,7 +674,8 @@ const DoctorDashboard = () => {
                                         ) : (
                                             <Camera className="w-8 h-8 text-slate-300" />
                                         )}
-                                        <div className="absolute inset-0 bg-primary-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity backdrop-blur-[2px]">
+                                        <div className="absolute inset-0 bg-primary-900/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity 
+                                            backdrop-blur-[2px]">
                                             <span className="text-white text-xs font-bold bg-black/40 px-3 py-1.5 rounded-lg border border-white/20">Upload</span>
                                         </div>
                                         <input type="file" accept="image/*" onChange={(e) => setEditPhoto(e.target.files[0])} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" />
@@ -677,13 +684,19 @@ const DoctorDashboard = () => {
                             </div>
                             <div>
                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Clinic/Hospital Address</label>
-                                <input type="text" value={editForm.address} onChange={(e) => setEditForm({ ...editForm, address: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 outline-none transition-all mb-4" required placeholder="e.g. 123 Medical Park, Suite 4B" />
+                                <input type="text" value={editForm.address} onChange={(e) => setEditForm({ ...editForm, address: e.target.value })} className="w-full px-4 py-3 rounded-xl
+                                 bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 
+                                    outline-none transition-all mb-4" required placeholder="e.g. 123 Medical Park, Suite 4B" />
                                 <label className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Professional bio</label>
-                                <textarea value={editForm.bio} onChange={(e) => setEditForm({ ...editForm, bio: e.target.value })} rows="4" className="w-full px-4 py-3 rounded-xl bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 flex-1 outline-none resize-none transition-all" placeholder="Introduce yourself into the clinical network..."></textarea>
+                                <textarea value={editForm.bio} onChange={(e) => setEditForm({ ...editForm, bio: e.target.value })} rows="4" className="w-full px-4 py-3 rounded-xl
+                                 bg-slate-50/50 border border-slate-200 focus:ring-4 focus:ring-primary-100 focus:border-primary-400 font-medium text-slate-700 flex-1 
+                                    outline-none resize-none transition-all" placeholder="Introduce yourself into the clinical network..."></textarea>
                             </div>
                             <div className="flex justify-end space-x-3 pt-6 border-t border-slate-100">
-                                <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-6 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 transition-colors w-full sm:w-auto">Cancel</button>
-                                <button type="submit" disabled={updatingProfile} className="w-full sm:w-auto px-8 py-3 rounded-xl font-bold bg-primary-600 hover:bg-primary-700 text-white shadow-lg shadow-primary-500/30 transition-all hover:-translate-y-0.5 disabled:opacity-50">
+                                <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-6 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 
+                                    transition-colors w-full sm:w-auto">Cancel</button>
+                                <button type="submit" disabled={updatingProfile} className="w-full sm:w-auto px-8 py-3 rounded-xl font-bold bg-primary-600 hover:bg-primary-700
+                                 text-white shadow-lg shadow-primary-500/30 transition-all hover:-translate-y-0.5 disabled:opacity-50">
                                     {updatingProfile ? 'Uploading...' : 'Deploy Changes'}
                                 </button>
                             </div>
@@ -718,16 +731,28 @@ const DoctorDashboard = () => {
                                             <div className="absolute left-0 top-0 bottom-0 w-1 bg-indigo-200 group-hover:bg-indigo-400 transition-colors"></div>
                                             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
                                                 <div className="col-span-1 md:col-span-2">
-                                                    <input type="text" value={med.name} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].name = e.target.value; setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none placeholder-slate-400 text-slate-800 transition-all" required placeholder="Medicine Name (e.g. Lisinopril 10mg)" />
+                                                    <input type="text" value={med.name} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].name = e.target.value; 
+                                                        setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 border
+                                                         border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none
+                                                          placeholder-slate-400 text-slate-800 transition-all" required placeholder="Medicine Name (e.g. Lisinopril 10mg)" />
                                                 </div>
                                                 <div className="col-span-1">
-                                                    <input type="text" value={med.dosage} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].dosage = e.target.value; setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none placeholder-slate-400 text-slate-800 transition-all" required placeholder="Dose (1-0-1)" />
+                                                    <input type="text" value={med.dosage} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].dosage = e.target.value; 
+                                                        setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 border
+                                                         border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none placeholder-slate-400
+                                                          text-slate-800 transition-all" required placeholder="Dose (1-0-1)" />
                                                 </div>
                                                 <div className="col-span-1">
-                                                    <input type="text" value={med.duration} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].duration = e.target.value; setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none placeholder-slate-400 text-slate-800 transition-all" required placeholder="Days/Weeks" />
+                                                    <input type="text" value={med.duration} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].duration = e.target.value; 
+                                                        setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2.5 rounded-lg bg-slate-50 
+                                                        border border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-sm font-bold outline-none 
+                                                        placeholder-slate-400 text-slate-800 transition-all" required placeholder="Days/Weeks" />
                                                 </div>
                                                 <div className="col-span-1 md:col-span-4">
-                                                    <input type="text" value={med.notes} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].notes = e.target.value; setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-xs font-medium outline-none placeholder-slate-400 text-slate-600 transition-all" placeholder="Add specific instructions (take with food, etc.)" />
+                                                    <input type="text" value={med.notes} onChange={(e) => { const updated = [...prescriptionForm.medicines]; updated[index].notes = e.target.value; 
+                                                        setPrescriptionForm({ ...prescriptionForm, medicines: updated }); }} className="w-full px-3 py-2 rounded-lg bg-slate-50 border
+                                                         border-slate-200 focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 text-xs font-medium outline-none
+                                                          placeholder-slate-400 text-slate-600 transition-all" placeholder="Add specific instructions (take with food, etc.)" />
                                                 </div>
                                             </div>
                                         </div>
@@ -849,19 +874,23 @@ const DoctorDashboard = () => {
             )}
             {/* Mobile Bottom Navigation */}
             <div className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-slate-100 flex justify-around items-center p-3 z-50 pb-safe">
-                <button onClick={() => { setActiveTab('overview'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 ${activeTab === 'overview' ? 'text-primary-600' : 'text-slate-400'}`}>
+                <button onClick={() => { setActiveTab('overview'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 
+                    ${activeTab === 'overview' ? 'text-primary-600' : 'text-slate-400'}`}>
                     <Home className="w-6 h-6" />
                     <span className="text-[10px] font-bold">Home</span>
                 </button>
-                <button onClick={() => { setActiveTab('appointments'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 ${activeTab === 'appointments' ? 'text-primary-600' : 'text-slate-400'}`}>
+                <button onClick={() => { setActiveTab('appointments'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 
+                    ${activeTab === 'appointments' ? 'text-primary-600' : 'text-slate-400'}`}>
                     <Calendar className="w-6 h-6" />
                     <span className="text-[10px] font-bold">Schedule</span>
                 </button>
-                <button onClick={() => { setActiveTab('profile'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 ${activeTab === 'profile' ? 'text-primary-600' : 'text-slate-400'}`}>
+                <button onClick={() => { setActiveTab('profile'); window.scrollTo(0,0); }} className={`flex flex-col items-center space-y-1 
+                    ${activeTab === 'profile' ? 'text-primary-600' : 'text-slate-400'}`}>
                     <Settings className="w-6 h-6" />
                     <span className="text-[10px] font-bold">Profile</span>
                 </button>
-                <button onClick={() => setMobileMoreOpen(!mobileMoreOpen)} className={`flex flex-col items-center space-y-1 ${mobileMoreOpen || ['patients','careHistory'].includes(activeTab) ? 'text-primary-600' : 'text-slate-400'}`}>
+                <button onClick={() => setMobileMoreOpen(!mobileMoreOpen)} className={`flex flex-col items-center space-y-1 
+                    ${mobileMoreOpen || ['patients','careHistory'].includes(activeTab) ? 'text-primary-600' : 'text-slate-400'}`}>
                     <Activity className="w-6 h-6" />
                     <span className="text-[10px] font-bold">More</span>
                 </button>
@@ -870,7 +899,8 @@ const DoctorDashboard = () => {
             {viewPrescriptionData && (
                 <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
                     <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm" onClick={() => setViewPrescriptionData(null)} />
-                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl relative z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-white">
+                    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white rounded-[2rem] shadow-2xl w-full max-w-2xl 
+                        relative z-10 p-6 md:p-8 max-h-[90vh] overflow-y-auto border border-white">
                         <div className="flex items-center space-x-3 mb-6 bg-indigo-50 p-4 rounded-2xl border border-indigo-100">
                             <div className="w-12 h-12 bg-indigo-500 text-white rounded-xl flex items-center justify-center text-xl font-bold shadow-md">Rx</div>
                             <div>
@@ -918,4 +948,4 @@ const DoctorDashboard = () => {
         </div>
     );
 };
-export default DoctorDashboard;
+export default DoctorDashboard;

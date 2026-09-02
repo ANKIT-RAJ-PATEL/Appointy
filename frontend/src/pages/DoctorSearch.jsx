@@ -439,16 +439,20 @@ const DoctorSearch = () => {
                                     return doc.isAvailable;
                                 })();
                                 return (
-                                    <motion.div key={doc.id} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.05 }} className="bg-white dark:bg-slate-900 rounded-[2rem] p-6 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-primary-100 dark:hover:border-primary-800 transition-all flex flex-col md:flex-row gap-6 group">
+                                    <motion.div key={doc.id} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: idx * 0.05 }} className="bg-white 
+                                     dark:bg-slate-900 rounded-[2rem] p-6 shadow-sm border border-slate-100 dark:border-slate-800 hover:shadow-lg hover:border-primary-100
+                                     dark:hover:border-primary-800 transition-all flex flex-col md:flex-row gap-6 group">
                                         {/* Avatar & Status */}
                                         <div className="flex-shrink-0 flex flex-col items-center">
                                             <div className="relative w-32 h-32 transform group-hover:scale-105 transition-transform">
                                                 <img src={doc.image} alt={doc.name} className="w-full h-full rounded-[2rem] object-cover border-[6px] border-slate-50 shadow-md" />
-                                                <div className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full border-[3px] border-white flex items-center justify-center ${isAvailableToDisplay ? 'bg-green-500' : 'bg-slate-400'}`} title={isAvailableToDisplay ? 'Available' : 'Away'}>
-                                                    {isAvailableToDisplay && <BadgeCheck className="w-4 h-4 text-white" />}
+                                                <div className={`absolute -bottom-2 -right-2 w-8 h-8 rounded-full border-[3px] border-white flex items-center justify-center 
+                                                        ${isAvailableToDisplay ? 'bg-green-500' : 'bg-slate-400'}`} title={isAvailableToDisplay ? 'Available' : 'Away'}>
+                                                        {isAvailableToDisplay && <BadgeCheck className="w-4 h-4 text-white" />}
                                                 </div>
                                             </div>
-                                            <span className={`mt-4 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-lg border flex items-center gap-1 ${isAvailableToDisplay ? 'bg-green-50 text-green-700 border-green-200' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
+                                            <span className={`mt-4 text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-lg border flex items-center gap-1 
+                                                ${isAvailableToDisplay ? 'bg-green-50 text-green-700 border-green-200' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
                                                 <div className={`w-2 h-2 rounded-full ${isAvailableToDisplay ? 'bg-green-500' : 'bg-slate-400'}`}></div>
                                                 {isAvailableToDisplay ? 'Available' : 'Away'}
                                             </span>
@@ -481,11 +485,14 @@ const DoctorSearch = () => {
                                                 </div>
                                             </div>
                                             <div className="flex flex-col sm:flex-row gap-3">
-                                                <button onClick={() => openBookingModal(doc)} className="flex-1 bg-primary-600 hover:bg-primary-700 text-white py-3 px-4 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2">
+                                                <button onClick={() => openBookingModal(doc)} className="flex-1 bg-primary-600 hover:bg-primary-700 text-white 
+                                                    py-3 px-4 rounded-xl text-sm font-semibold transition-all flex items-center justify-center gap-2">
                                                     <Calendar className="w-4 h-4" />
                                                     <span>Book Appointment</span>
                                                 </button>
-                                                <button onClick={() => openViewProfileModal(doc)} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 py-3 px-4 rounded-xl text-sm font-semibold transition-all flex items-center justify-center">
+                                                <button onClick={() => openViewProfileModal(doc)} className="flex-1 bg-white dark:bg-slate-800 border border-slate-200
+                                                 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700
+                                                  text-slate-700 dark:text-slate-200 py-3 px-4 rounded-xl text-sm font-semibold transition-all flex items-center justify-center">
                                                     View Partner Profile
                                                 </button>
                                             </div>
@@ -514,7 +521,8 @@ const DoctorSearch = () => {
                 {bookingDoctor && (
                     <div className="fixed inset-0 z-[60] flex items-center justify-center px-4">
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={closeBookingModal} />
-                        <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} className="bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden relative z-10 border border-white">
+                        <motion.div initial={{ opacity: 0, scale: 0.95, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: 20 }} 
+                            className="bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden relative z-10 border border-white">
                             <div className="p-8 pb-6 border-b border-slate-100 flex justify-between items-start bg-gradient-to-b from-slate-50 to-white">
                                 <div className="flex gap-4 items-center">
                                     <img src={bookingDoctor.image} alt={bookingDoctor.name} className="w-16 h-16 rounded-[1.2rem] object-cover border-4 border-white shadow-sm" />

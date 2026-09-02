@@ -135,7 +135,8 @@ const Login = () => {
                             </button>
                         </div>
                     </div>
-                    <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 text-white font-bold py-4 px-4 rounded-2xl transition-all shadow-lg shadow-blue-700/30 flex items-center justify-center space-x-2 mt-4 hover:-translate-y-0.5 disabled:opacity-70">
+                    <button type="submit" disabled={loading} className="w-full bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 text-white 
+                        font-bold py-4 px-4 rounded-2xl transition-all shadow-lg shadow-blue-700/30 flex items-center justify-center space-x-2 mt-4 hover:-translate-y-0.5 disabled:opacity-70">
                         {loading ? (
                             <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                         ) : (
