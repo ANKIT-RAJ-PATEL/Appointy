@@ -210,7 +210,7 @@ const Signup = () => {
                                         <input
                                             type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
                                             className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:ring-4 focus:ring-primary-500/20 outline-none font-medium text-slate-700 text-sm"
-                                            placeholder="+1 (555) 000-0000"
+                                            placeholder="+91 9876543210"
                                         />
                                     </div>
 
@@ -318,4 +318,4 @@ const Signup = () => {
         </div>
     );
 };
-export default Signup;
+export default Signup;
