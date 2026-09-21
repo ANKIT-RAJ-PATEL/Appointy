@@ -486,7 +486,7 @@ const DoctorDashboard = () => {
                                 </div>
                             </div>
                             <div className="mt-10 flex flex-col sm:flex-row justify-end gap-4 border-t border-slate-100 pt-6">
-                                <button onClick={() => setIsEditModalOpen(true)} className="px-8 py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
+                                <button onClick={() => 6(true)} className="px-8 py-3.5 bg-slate-800 hover:bg-slate-900 text-white font-bold rounded-xl shadow-lg transition-colors flex items-center justify-center gap-2">
                                     <Settings className="w-5 h-5" /> Configure Profile Settings
                                 </button>
                                 <button onClick={handleDeleteAccount} className="px-8 py-3.5 bg-white border border-red-200 text-red-500 hover:bg-red-50 hover:border-red-300 font-bold rounded-xl shadow-sm transition-colors flex items-center justify-center gap-2">
@@ -563,7 +563,7 @@ const DoctorDashboard = () => {
                                     <Search className="w-4 h-4" /> Book New
                                 </Link>
                             </div>
-                            {bookedAppointments.length > 0 ? (
+                            {bookedAppointments.length > 0 ? (    
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {bookedAppointments.map(apt => (
                                         <div key={apt._id} className="bg-white border border-slate-100 rounded-2xl p-5 flex flex-col hover:shadow-md transition-shadow shadow-sm">

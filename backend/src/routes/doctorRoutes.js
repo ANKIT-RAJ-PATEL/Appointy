@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { registerDoctor, loginDoctor, getDoctors, getDoctorById, getNearbyDoctors, getDoctorProfile, updateDoctorProfile, addDoctorReview, getDoctorReviews, getAllReviews, deleteDoctorProfile, likeReview } = require('../controllers/doctorController');
+const { registerDoctor, loginDoctor, getDoctors, getDoctorById, getNearbyDoctors, getDoctorProfile, updateDoctorProfile, updateDoctorLocation, addDoctorReview, getDoctorReviews, getAllReviews, deleteDoctorProfile, likeReview } = require('../controllers/doctorController');
 const { protect, doctor } = require('../middleware/authMiddleware');
 const upload = require('../middleware/uploadMiddleware');
 
@@ -28,6 +28,7 @@ router.route('/me')
     .get(protect, doctor, getDoctorProfile)
     .put(protect, doctor, upload.single('profilePhoto'), updateDoctorProfile)
     .delete(protect, doctor, deleteDoctorProfile);
+router.put('/update-location', protect, doctor, updateDoctorLocation);
 // Public single-doctor fetch (must be above /:id/reviews)
 router.get('/:id', getDoctorById);
 // Patient Reviews Route

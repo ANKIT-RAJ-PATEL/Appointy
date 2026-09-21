@@ -440,6 +440,30 @@ const getNearbyDoctors = async (req, res) => {
         res.status(500).json({ message: 'Server error fetching nearby doctors' });
     }
 };
+// @desc    Update doctor geo location (auto-detected from browser)
+// @route   PUT /api/doctors/update-location
+// @access  Private (Doctor)
+const updateDoctorLocation = async (req, res) => {
+    try {
+        const { lat, lng } = req.body;
+        if (lat === undefined || lng === undefined) {
+            return res.status(400).json({ message: 'Latitude and longitude are required' });
+        }
+        const doctor = await Doctor.findById(req.user._id);
+        if (!doctor) {
+            return res.status(404).json({ message: 'Doctor not found' });
+        }
+        doctor.location = {
+            type: 'Point',
+            coordinates: [parseFloat(lng), parseFloat(lat)]
+        };
+        await doctor.save();
+        res.json({ message: 'Location updated successfully', location: doctor.location });
+    } catch (error) {
+        console.error('Update Location Error:', error);
+        res.status(500).json({ message: 'Server error updating location' });
+    }
+};
 module.exports = {
     registerDoctor,
     loginDoctor,
@@ -448,6 +472,7 @@ module.exports = {
     getNearbyDoctors,
     getDoctorProfile,
     updateDoctorProfile,
+    updateDoctorLocation,
     deleteDoctorProfile,
     addDoctorReview,
     getDoctorReviews,

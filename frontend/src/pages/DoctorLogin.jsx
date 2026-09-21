@@ -19,6 +19,25 @@ const DoctorLogin = () => {
         try {
             const { data } = await api.post('/api/doctors/signin', { email, password });
             dispatch(setCredentials(data));
+
+            // Auto-detect location and update doctor's coordinates in DB
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    async (position) => {
+                        try {
+                            const { latitude: lat, longitude: lng } = position.coords;
+                            await api.put('/api/doctors/update-location', { lat, lng }, {
+                                headers: { Authorization: `Bearer ${data.token}` }
+                            });
+                        } catch (locErr) {
+                            console.warn('Could not update doctor location:', locErr);
+                        }
+                    },
+                    () => { /* location denied — silently skip */ },
+                    { timeout: 5000 }
+                );
+            }
+
             navigate('/doctor/dashboard');
         } catch (err) {
             setError(err.response?.data?.message || 'Invalid Provider Credentials');
